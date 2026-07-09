@@ -31,6 +31,10 @@ const contactSchema = new mongoose.Schema(
             minlength: 20,
             maxlength: 2000,
         },
+        ipAddress: {
+            type: String,
+            trim: true,
+        },
 
         status: {
             type: String,
