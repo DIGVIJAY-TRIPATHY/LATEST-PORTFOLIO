@@ -2,10 +2,11 @@
   "name": "contact-backend",
   "version": "1.0.0",
   "description": "MERN backend for a portfolio contact form",
-  "main": "index.js",
+  "type": "module",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
