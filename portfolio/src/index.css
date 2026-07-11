@@ -1,9 +1,16 @@
 @import "tailwindcss";
-/* Custom CSS variables */
-:root {
- --purple: #7F77DD;
- --teal: #1D9E75;
- --dark: #0A0A0A;
+
+html {
+  scroll-behavior: smooth;
 }
-* { cursor: none; } /* Custom cursor replaces default */
-html { scroll-behavior: smooth; }
+
+body {
+  background: #050505;
+  color: white;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #a855f7;
+  color: white;
+}
