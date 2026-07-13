@@ -10,7 +10,7 @@ export default function HeroButtons() {
         href="#projects"
         whileHover={{ scale: 1.05, y: -3 }}
         whileTap={{ scale: 0.95 }}
-        className="group relative w-full sm:w-auto overflow-hidden rounded-2xl bg-gradient-to-r from-pink-500 via-violet-500 to-cyan-500 px-8 py-4 font-semibold text-white shadow-[0_15px_60px_rgba(168,85,247,0.45)] transition-all"
+        className="group relative w-full sm:w-auto overflow-hidden rounded-2xl bg-linear-to-r from-pink-500 via-violet-500 to-cyan-500 px-8 py-4 font-semibold text-white shadow-[0_15px_60px_rgba(168,85,247,0.45)] transition-all"
       >
         <span className="relative z-10 flex items-center gap-3">
           View Projects

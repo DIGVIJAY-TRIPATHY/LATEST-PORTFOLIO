@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import  { useState, useEffect, useRef } from "react";
 import { Menu, X, ArrowUpRight, Download } from "lucide-react";
 import resume from "../../assets/DIGVIJAY-CV.pdf";
 
@@ -205,7 +205,7 @@ export default function Navbar() {
             "nav-font-body",
             scrolled
               ? "px-3 py-2 sm:px-4 sm:py-2.5 bg-black/70 border-white/15 shadow-[0_8px_32px_-8px_rgba(168,85,247,0.45)] backdrop-blur-xl"
-              : "px-3 py-2.5 sm:px-5 sm:py-3 bg-black/50 border-white/[0.12] shadow-[0_8px_40px_-12px_rgba(168,85,247,0.4)] backdrop-blur-lg",
+              : "px-3 py-2.5 sm:px-5 sm:py-3 bg-black/50 border-white/12 shadow-[0_8px_40px_-12px_rgba(168,85,247,0.4)] backdrop-blur-lg",
           ].join(" ")}
         >
           {/* Logo */}
@@ -215,7 +215,7 @@ export default function Navbar() {
             aria-label="Go to home"
           >
             <span className="relative logo-ring inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-black">
-              <span className="nav-font-display text-[11px] sm:text-xs font-bold bg-gradient-to-br from-pink-400 via-fuchsia-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="nav-font-display text-[11px] sm:text-xs font-bold bg-linear-to-br from-pink-400 via-fuchsia-400 to-blue-400 bg-clip-text text-transparent">
                 DT
               </span>
             </span>
@@ -254,7 +254,7 @@ export default function Navbar() {
                   {link.label}
                   <span
                     className={[
-                      "nav-underline absolute left-4 right-4 -bottom-0.5 h-[2px] rounded-full origin-left transition-transform duration-300",
+                      "nav-underline absolute left-4 right-4 -bottom-0.5 h-0.5 rounded-full origin-left transition-transform duration-300",
                       isActive ? "scale-x-100" : "scale-x-0",
                     ].join(" ")}
                   />
@@ -287,7 +287,7 @@ export default function Navbar() {
               href={resume}
               download
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-pink-500 via-fuchsia-500 to-blue-500 transition-transform duration-300 group-hover:scale-105" />
+              <span className="absolute inset-0 bg-linear-to-r from-pink-500 via-fuchsia-500 to-blue-500 transition-transform duration-300 group-hover:scale-105" />
               <span className="relative">Resume</span>
               <Download size={14} className="relative" />
             </a>
@@ -323,13 +323,13 @@ export default function Navbar() {
                     className={[
                       "flex items-center justify-between px-4 py-3 rounded-2xl text-left nav-font-body text-[15px] font-medium transition-colors",
                       isActive
-                        ? "text-white bg-gradient-to-r from-pink-500/15 via-fuchsia-500/15 to-blue-500/15"
+                        ? "text-white bg-linear-to-r from-pink-500/15 via-fuchsia-500/15 to-blue-500/15"
                         : "text-white/70 hover:text-white hover:bg-white/5",
                     ].join(" ")}
                   >
                     {link.label}
                     {isActive && (
-                      <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-pink-400 to-blue-400" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-linear-to-r from-pink-400 to-blue-400" />
                     )}
                   </button>
                 );
@@ -357,7 +357,7 @@ export default function Navbar() {
                 href="#"
                 className="relative inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold text-white overflow-hidden"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-pink-500 via-fuchsia-500 to-blue-500" />
+                <span className="absolute inset-0 bg-linear-to-r from-pink-500 via-fuchsia-500 to-blue-500" />
                 <span className="relative">Resume</span>
                 <ArrowUpRight size={14} className="relative" />
               </a>

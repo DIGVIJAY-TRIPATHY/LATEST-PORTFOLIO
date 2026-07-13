@@ -60,7 +60,7 @@ export default function Footer() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 py-20">
-        <div className="mb-20 overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl md:p-12">
+        <div className="mb-20 overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl md:p-12">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <p className="mb-3 text-sm uppercase tracking-[0.3em] text-pink-400">
@@ -69,7 +69,7 @@ export default function Footer() {
 
               <h2 className="max-w-2xl text-4xl font-black leading-tight text-white md:text-6xl">
                 Let's Build Something
-                <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-pink-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
                   {" "}
                   Amazing
                 </span>
@@ -83,7 +83,7 @@ export default function Footer() {
 
             <a
               href="mailto:tripathydigvijay7377@gmail.com"
-              className="group flex items-center gap-3 rounded-2xl bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 px-8 py-4 font-semibold text-white transition-all duration-300 hover:scale-105"
+              className="group flex items-center gap-3 rounded-2xl bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 px-8 py-4 font-semibold text-white transition-all duration-300 hover:scale-105"
             >
               Let's Talk
               <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -94,7 +94,7 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <div className="mb-5 flex items-center gap-3">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 font-bold text-white">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-r from-pink-500 to-purple-500 font-bold text-white">
                 DT
               </div>
 

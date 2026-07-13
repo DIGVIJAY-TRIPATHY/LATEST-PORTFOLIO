@@ -22,7 +22,7 @@ export default function AnimatedText() {
       wrapper="span"
       speed={45}
       repeat={Infinity}
-      className="bg-gradient-to-r from-pink-400 via-violet-400 to-cyan-400 bg-clip-text text-xl sm:text-2xl md:text-3xl font-semibold text-transparent"
+      className="bg-linear-to-r from-pink-400 via-violet-400 to-cyan-400 bg-clip-text text-xl sm:text-2xl md:text-3xl font-semibold text-transparent"
     />
   );
 }

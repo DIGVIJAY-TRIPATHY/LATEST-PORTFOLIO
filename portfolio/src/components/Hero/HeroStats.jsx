@@ -33,7 +33,7 @@ export default function HeroStats() {
           }}
           className="rounded-3xl border border-white/10 bg-white/5 p-5 lg:p-6 backdrop-blur-xl transition-all"
         >
-          <h2 className="bg-gradient-to-r from-pink-400 via-violet-400 to-cyan-400 bg-clip-text text-2xl lg:text-3xl font-black text-transparent">
+          <h2 className="bg-linear-to-r from-pink-400 via-violet-400 to-cyan-400 bg-clip-text text-2xl lg:text-3xl font-black text-transparent">
             {item.value}
           </h2>
 

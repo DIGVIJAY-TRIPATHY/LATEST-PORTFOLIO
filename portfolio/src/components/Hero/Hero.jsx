@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <section
   id="home"
-  className="relative min-h-[100svh] overflow-hidden bg-[#050505] text-white lg:min-h-screen"
+  className="relative min-h-svh overflow-hidden bg-[#050505] text-white lg:min-h-screen"
 >
       <BackgroundEffects />
 
