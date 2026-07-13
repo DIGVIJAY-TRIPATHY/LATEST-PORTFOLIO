@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ArrowUpRight, Download } from "lucide-react";
+import resume from "../../assets/DIGVIJAY-CV.pdf";
+
 
 // Inline SVG icons (kept out of lucide-react to avoid icon-name/version mismatches
 // like "Github"/"Linkedin" not being exported in some installed versions).
@@ -262,22 +264,26 @@ export default function Navbar() {
           {/* Right side: socials + CTA (desktop) */}
           <div className="hidden md:flex items-center gap-2">
             <a
-              href="#"
+              href="https://github.com/DIGVIJAY-TRIPATHY"
               aria-label="GitHub"
               className="p-2 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+              target="_blank"
             >
               <GithubIcon />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/digvijay-tripathy-194aa8314/"
               aria-label="LinkedIn"
               className="p-2 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+              target="_blank"
             >
               <LinkedinIcon />
             </a>
             <a
-              href="#"
               className="group relative inline-flex items-center gap-1.5 ml-1 px-4 py-2 rounded-full text-sm font-semibold text-white overflow-hidden"
+              target="_blank"
+              href={resume}
+              download
             >
               <span className="absolute inset-0 bg-gradient-to-r from-pink-500 via-fuchsia-500 to-blue-500 transition-transform duration-300 group-hover:scale-105" />
               <span className="relative">Resume</span>
