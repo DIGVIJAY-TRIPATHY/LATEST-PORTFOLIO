@@ -59,32 +59,32 @@ export default function Navbar() {
   // Guarded so "Home" always wins near the top of the page, even if the
   // "about" section sits just below the fold and technically intersects first.
   useEffect(() => {
-    const sections = LINKS.map((l) => document.getElementById(l.id)).filter(
-      Boolean,
-    );
-    if (sections.length === 0) return;
+  const sections = LINKS.map((l) => document.getElementById(l.id)).filter(Boolean);
 
-    const onScrollTop = () => {
-      if (window.scrollY < 120) setActive("home");
-    };
-    onScrollTop();
-    window.addEventListener("scroll", onScrollTop, { passive: true });
+  if (!sections.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (window.scrollY < 120) return; // let the top-of-page guard win
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        });
-      },
-      { rootMargin: "-40% 0px -50% 0px", threshold: 0 },
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => {
-      window.removeEventListener("scroll", onScrollTop);
-      observer.disconnect();
-    };
-  }, []);
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort(
+          (a, b) => b.intersectionRatio - a.intersectionRatio
+        );
+
+      if (visible.length > 0) {
+        setActive(visible[0].target.id);
+      }
+    },
+    {
+      threshold: [0.2, 0.4, 0.6, 0.8],
+      rootMargin: "-20% 0px -35% 0px",
+    }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+
+  return () => observer.disconnect();
+}, []);
 
   // move the glowing ember to whichever link is hovered, falling back to active
   useEffect(() => {
@@ -110,11 +110,13 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   const handleNavClick = (id) => {
-    setActive(id);
-    setMobileOpen(false);
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  setMobileOpen(false);
+
+  document.getElementById(id)?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+};
 
   return (
     <>

@@ -360,7 +360,7 @@ export default function Skills() {
   }, []);
 
   return (
-    <section className="skills-section" ref={sectionRef}>
+    <section className="skills-section" ref={sectionRef} id="skills">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap');
 
