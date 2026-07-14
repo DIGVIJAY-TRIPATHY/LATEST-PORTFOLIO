@@ -10,7 +10,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-slate-950 py-28"
+      className="relative overflow-hidden bg-black py-28"
     >
       {/* Background */}
       <div className="absolute inset-0">
@@ -83,7 +83,7 @@ const About = () => {
             </div>
 
             {/* Philosophy */}
-            <div className="relative overflow-hidden rounded-3xl border border-cyan-400/20 bg-linear-to-br from-cyan-500/10 via-white/5 to-purple-500/10 p-8 backdrop-blur-xl">
+            {/* <div className="relative overflow-hidden rounded-3xl border border-cyan-400/20 bg-linear-to-br from-cyan-500/10 via-white/5 to-purple-500/10 p-8 backdrop-blur-xl">
               <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-cyan-400/20 blur-3xl" />
 
               <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-300">
@@ -95,7 +95,7 @@ const About = () => {
                 It's remembered by how naturally technology disappears behind
                 exceptional user experiences."
               </p>
-            </div>
+            </div> */}
 
             {/* CTA */}
             <button className="group relative inline-flex overflow-hidden rounded-full border border-cyan-400/30 px-8 py-4 text-sm font-bold uppercase tracking-[0.25em] text-white transition-all duration-500 hover:scale-105 hover:border-cyan-400 hover:shadow-[0_0_35px_rgba(34,211,238,0.45)]">
