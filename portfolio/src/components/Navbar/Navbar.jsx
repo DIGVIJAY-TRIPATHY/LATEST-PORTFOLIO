@@ -1,9 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ArrowUpRight, Download } from "lucide-react";
 import resume from "../../assets/DIGVIJAY-CV.pdf";
-
-// Inline SVG icons (kept out of lucide-react to avoid icon-name/version mismatches
-// like "Github"/"Linkedin" not being exported in some installed versions).
 const GithubIcon = (props) => (
   <svg
     viewBox="0 0 24 24"
@@ -267,16 +264,16 @@ export default function Navbar() {
             <a
               href="https://github.com/DIGVIJAY-TRIPATHY"
               aria-label="GitHub"
-              className="p-2 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors"
               target="_blank"
+              className="p-2 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors"
             >
               <GithubIcon />
             </a>
             <a
               href="https://www.linkedin.com/in/digvijay-tripathy-194aa8314/"
               aria-label="LinkedIn"
-              className="p-2 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors"
               target="_blank"
+              className="p-2 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors"
             >
               <LinkedinIcon />
             </a>
@@ -338,22 +335,26 @@ export default function Navbar() {
             <div className="flex items-center justify-between gap-2 px-4 py-3 border-t border-white/10">
               <div className="flex items-center gap-1">
                 <a
-                  href="#"
+                  href="https://github.com/DIGVIJAY-TRIPATHY"
                   aria-label="GitHub"
+                  target="_blank"
                   className="p-2 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors"
                 >
                   <GithubIcon />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/digvijay-tripathy-194aa8314/"
                   aria-label="LinkedIn"
+                  target="_blank"
                   className="p-2 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors"
                 >
                   <LinkedinIcon />
                 </a>
               </div>
               <a
-                href="#"
+                target="_blank"
+                href={resume}
+                download
                 className="relative inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold text-white overflow-hidden"
               >
                 <span className="absolute inset-0 bg-linear-to-r from-pink-500 via-fuchsia-500 to-blue-500" />
