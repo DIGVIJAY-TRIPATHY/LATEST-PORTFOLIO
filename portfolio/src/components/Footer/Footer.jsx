@@ -1,22 +1,17 @@
-import {
-  Mail,
-  ArrowUpRight,
-  ArrowUp,
-  Download,
-} from "lucide-react";
+import { Mail, ArrowUpRight, ArrowUp, Download } from "lucide-react";
 
 import resume from "../../assets/DIGVIJAY-CV.pdf";
 
 // Custom inline SVG for Github (replacing lucide version)
 const GithubIcon = () => (
-  <svg 
-    viewBox="0 0 24 24" 
-    width="24" 
-    height="24" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    fill="none" 
-    strokeLinecap="round" 
+  <svg
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    stroke="currentColor"
+    strokeWidth="2"
+    fill="none"
+    strokeLinecap="round"
     strokeLinejoin="round"
   >
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
@@ -26,14 +21,14 @@ const GithubIcon = () => (
 
 // Custom inline SVG for Linkedin (replacing lucide version)
 const LinkedinIcon = () => (
-  <svg 
-    viewBox="0 0 24 24" 
-    width="24" 
-    height="24" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    fill="none" 
-    strokeLinecap="round" 
+  <svg
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    stroke="currentColor"
+    strokeWidth="2"
+    fill="none"
+    strokeLinecap="round"
     strokeLinejoin="round"
   >
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -53,7 +48,10 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-black" id="contact">
+    <footer
+      className="relative overflow-hidden border-t border-white/10 bg-black"
+      id="contact"
+    >
       <div className="absolute inset-0">
         <div className="absolute left-1/4 top-0 h-72 w-72 rounded-full bg-pink-500/20 blur-[120px]" />
         <div className="absolute right-1/4 bottom-0 h-72 w-72 rounded-full bg-blue-500/20 blur-[120px]" />
@@ -103,15 +101,13 @@ export default function Footer() {
                   Digvijay Tripathy
                 </h3>
 
-                <p className="text-zinc-400">
-                  Full Stack MERN Developer
-                </p>
+                <p className="text-zinc-400">Full Stack MERN Developer</p>
               </div>
             </div>
 
             <p className="max-w-md text-zinc-400">
-              Building premium web experiences with React, Node.js,
-              MongoDB and modern technologies.
+              Building premium web experiences with React, Node.js, MongoDB and
+              modern technologies.
             </p>
 
             <div className="mt-6 flex items-center gap-2">
@@ -123,33 +119,44 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-5 font-semibold text-white">
-              Navigation
-            </h4>
+            <h4 className="mb-5 font-semibold text-white">Navigation</h4>
 
             <div className="space-y-3">
-              <a href="#home" className="block text-zinc-400 hover:text-pink-400">
+              <a
+                href="#home"
+                className="block text-zinc-400 hover:text-pink-400"
+              >
                 Home
               </a>
-              <a href="#about" className="block text-zinc-400 hover:text-pink-400">
+              <a
+                href="#about"
+                className="block text-zinc-400 hover:text-pink-400"
+              >
                 About
               </a>
-              <a href="#skills" className="block text-zinc-400 hover:text-pink-400">
+              <a
+                href="#skills"
+                className="block text-zinc-400 hover:text-pink-400"
+              >
                 Skills
               </a>
-              <a href="#projects" className="block text-zinc-400 hover:text-pink-400">
+              <a
+                href="#projects"
+                className="block text-zinc-400 hover:text-pink-400"
+              >
                 Projects
               </a>
-              <a href="#contact" className="block text-zinc-400 hover:text-pink-400">
+              <a
+                href="#contact"
+                className="block text-zinc-400 hover:text-pink-400"
+              >
                 Contact
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="mb-5 font-semibold text-white">
-              Resources
-            </h4>
+            <h4 className="mb-5 font-semibold text-white">Resources</h4>
 
             <div className="space-y-3">
               <a
@@ -168,16 +175,12 @@ export default function Footer() {
                 Email Me
               </a>
 
-              <span className="block text-zinc-400">
-                Bhubaneswar, India
-              </span>
+              <span className="block text-zinc-400">Bhubaneswar, India</span>
             </div>
           </div>
 
           <div>
-            <h4 className="mb-5 font-semibold text-white">
-              Connect
-            </h4>
+            <h4 className="mb-5 font-semibold text-white">Connect</h4>
 
             <div className="flex gap-4">
               <a
@@ -207,20 +210,16 @@ export default function Footer() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-2">
-              {[
-                "React",
-                "Node",
-                "MongoDB",
-                "Express",
-                "Tailwind",
-              ].map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-400"
-                >
-                  {tech}
-                </span>
-              ))}
+              {["React", "Node", "MongoDB", "Express", "Tailwind"].map(
+                (tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-400"
+                  >
+                    {tech}
+                  </span>
+                ),
+              )}
             </div>
           </div>
         </div>

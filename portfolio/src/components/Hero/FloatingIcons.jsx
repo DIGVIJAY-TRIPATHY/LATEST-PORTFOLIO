@@ -1,11 +1,5 @@
 import { FaGithub } from "react-icons/fa";
-import {
-  Atom,
-  Database,
-  Server,
-  Code2,
-  Cpu,
-} from "lucide-react";
+import { Atom, Database, Server, Code2, Cpu } from "lucide-react";
 
 import { motion } from "framer-motion";
 

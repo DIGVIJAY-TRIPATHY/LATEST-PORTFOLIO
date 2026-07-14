@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import {
   CSS3DRenderer,
@@ -36,7 +36,7 @@ const CATEGORY_META = {
   tools: { color: "#E0A458", label: "Tooling" },
 };
 
-const BASE_SPHERE_RADIUS = 180;
+const BASE_SPHERE_RADIUS = 200;
 const BASE_SIZE = 500;
 const MIN_ZOOM_Z = 320;
 const MAX_ZOOM_Z = 720;
@@ -75,7 +75,7 @@ export default function Skills() {
     const section = sectionRef.current;
     if (!section) return;
     const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
     if (reduceMotion) {
       section.classList.add("in-view");
@@ -88,7 +88,7 @@ export default function Skills() {
           io.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
     io.observe(section);
     return () => io.disconnect();
@@ -101,7 +101,7 @@ export default function Skills() {
     if (!container || !webglLayer || !css3dLayer) return;
 
     const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     let size = container.clientWidth || BASE_SIZE;
@@ -156,7 +156,7 @@ export default function Skills() {
     const particlesGeo = new THREE.BufferGeometry();
     particlesGeo.setAttribute(
       "position",
-      new THREE.BufferAttribute(particlePositions, 3)
+      new THREE.BufferAttribute(particlePositions, 3),
     );
     const particlesMat = new THREE.PointsMaterial({
       color: 0x7f77dd,
@@ -246,7 +246,7 @@ export default function Skills() {
           const ratio = pinchStartDist / d;
           cameraZ = Math.min(
             MAX_ZOOM_Z,
-            Math.max(MIN_ZOOM_Z, pinchStartZ * ratio)
+            Math.max(MIN_ZOOM_Z, pinchStartZ * ratio),
           );
           camera.position.z = cameraZ;
         }
@@ -274,14 +274,14 @@ export default function Skills() {
         () => {
           autoRotate = !reduceMotion;
         },
-        reduceMotion ? 0 : 1800
+        reduceMotion ? 0 : 1800,
       );
     }
     function onWheel(e) {
       e.preventDefault();
       cameraZ = Math.min(
         MAX_ZOOM_Z,
-        Math.max(MIN_ZOOM_Z, cameraZ + e.deltaY * 0.6)
+        Math.max(MIN_ZOOM_Z, cameraZ + e.deltaY * 0.6),
       );
       camera.position.z = cameraZ;
     }
@@ -301,7 +301,10 @@ export default function Skills() {
 
       if (autoRotate) {
         rotY += 0.0022;
-      } else if (!isDragging && (Math.abs(velX) > 0.00005 || Math.abs(velY) > 0.00005)) {
+      } else if (
+        !isDragging &&
+        (Math.abs(velX) > 0.00005 || Math.abs(velY) > 0.00005)
+      ) {
         // inertia: coast and decay after release
         rotY += velY;
         rotX += velX;
@@ -366,7 +369,7 @@ export default function Skills() {
 
         .skills-section {
           position: relative;
-          background: #0a0b10;
+          // background: #0a0b10;
           background-image: radial-gradient(circle, rgba(127,119,221,0.12) 1px, transparent 1px);
           background-size: 32px 32px;
           padding: clamp(64px, 12vw, 120px) clamp(20px, 8vw, 96px);
@@ -592,7 +595,10 @@ export default function Skills() {
           <div className="skills-webgl-layer" ref={webglLayerRef} />
           <div className="skills-css3d-layer" ref={css3dLayerRef} />
         </div>
-        <p className={`skills-hint${hinted ? " hidden" : ""}`} aria-hidden="true">
+        <p
+          className={`skills-hint${hinted ? " hidden" : ""}`}
+          aria-hidden="true"
+        >
           drag to rotate · scroll to zoom
         </p>
       </div>

@@ -1,7 +1,6 @@
-import  { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, ArrowUpRight, Download } from "lucide-react";
 import resume from "../../assets/DIGVIJAY-CV.pdf";
-
 
 // Inline SVG icons (kept out of lucide-react to avoid icon-name/version mismatches
 // like "Github"/"Linkedin" not being exported in some installed versions).
@@ -59,32 +58,32 @@ export default function Navbar() {
   // Guarded so "Home" always wins near the top of the page, even if the
   // "about" section sits just below the fold and technically intersects first.
   useEffect(() => {
-  const sections = LINKS.map((l) => document.getElementById(l.id)).filter(Boolean);
+    const sections = LINKS.map((l) => document.getElementById(l.id)).filter(
+      Boolean,
+    );
 
-  if (!sections.length) return;
+    if (!sections.length) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort(
-          (a, b) => b.intersectionRatio - a.intersectionRatio
-        );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
-      if (visible.length > 0) {
-        setActive(visible[0].target.id);
-      }
-    },
-    {
-      threshold: [0.2, 0.4, 0.6, 0.8],
-      rootMargin: "-20% 0px -35% 0px",
-    }
-  );
+        if (visible.length > 0) {
+          setActive(visible[0].target.id);
+        }
+      },
+      {
+        threshold: [0.2, 0.4, 0.6, 0.8],
+        rootMargin: "-20% 0px -35% 0px",
+      },
+    );
 
-  sections.forEach((section) => observer.observe(section));
+    sections.forEach((section) => observer.observe(section));
 
-  return () => observer.disconnect();
-}, []);
+    return () => observer.disconnect();
+  }, []);
 
   // move the glowing ember to whichever link is hovered, falling back to active
   useEffect(() => {
@@ -110,13 +109,13 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   const handleNavClick = (id) => {
-  setMobileOpen(false);
+    setMobileOpen(false);
 
-  document.getElementById(id)?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-};
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   return (
     <>

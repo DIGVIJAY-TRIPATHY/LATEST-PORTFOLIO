@@ -1,11 +1,4 @@
-import {
-  Terminal,
-  Activity,
-  Cpu,
-  Database,
-  Server,
-  Atom,
-} from "lucide-react";
+import { Terminal, Activity, Cpu, Database, Server, Atom } from "lucide-react";
 
 const status = [
   { label: "Developer", value: "Digvijay" },
@@ -58,9 +51,7 @@ const TerminalPanel = () => {
 
         <div className="flex items-center gap-2">
           <Activity className="h-4 w-4 animate-pulse text-emerald-400" />
-          <span className="text-xs font-medium text-emerald-400">
-            ONLINE
-          </span>
+          <span className="text-xs font-medium text-emerald-400">ONLINE</span>
         </div>
       </div>
 
@@ -100,9 +91,7 @@ const TerminalPanel = () => {
                     {item.title}
                   </h4>
 
-                  <p className="mt-1 text-xs text-slate-400">
-                    {item.value}
-                  </p>
+                  <p className="mt-1 text-xs text-slate-400">{item.value}</p>
                 </div>
               );
             })}

@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 export default function HeroButtons() {
   return (
     <div className="mt-8 flex flex-col gap-4 sm:mt-10 sm:flex-row sm:justify-center lg:justify-start">
-
       <motion.a
         href="#projects"
         whileHover={{ scale: 1.05, y: -3 }}
@@ -30,7 +29,6 @@ export default function HeroButtons() {
         <Download className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1" />
         Resume
       </motion.a>
-
     </div>
   );
 }

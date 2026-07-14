@@ -11,7 +11,7 @@ export default function ScrollIndicator() {
         repeat: Infinity,
         duration: 2,
       }}
-      className="absolute bottom-10 left-1/2 hidden -translate-x-1/2 flex-col items-center lg:flex flex -translate-x-1/2 flex-col items-center"
+      className="absolute bottom-10 left-1/2   lg:flex flex -translate-x-1/2 flex-col items-center"
     >
       <Mouse className="h-8 w-8 text-white/60" />
 

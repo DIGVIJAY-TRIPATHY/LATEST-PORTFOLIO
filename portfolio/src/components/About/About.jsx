@@ -1,17 +1,27 @@
 import TerminalPanel from "./Terminal.jsx";
-import {
-  Sparkles,
-  ArrowUpRight,
-} from "lucide-react";
+import { Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
 
-
+import { SiReact, SiMongodb, SiExpress, SiNodedotjs } from "react-icons/si";
 
 const About = () => {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((p) => {
+        if (p >= 100) {
+          clearInterval(timer);
+          return 100;
+        }
+        return p + 1;
+      });
+    }, 15);
+
+    return () => clearInterval(timer);
+  }, []);
   return (
-    <section
-      id="about"
-      className="relative overflow-hidden bg-black py-28"
-    >
+    <section id="about" className="relative overflow-hidden bg-black py-28">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute left-0 top-20 h-80 w-80 rounded-full bg-cyan-500/20 blur-[140px] animate-pulse" />
@@ -52,69 +62,97 @@ const About = () => {
           <div className="space-y-10">
             <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-[0_0_50px_rgba(0,255,255,0.05)] transition-all duration-500 hover:border-cyan-400/40">
               <p className="text-lg leading-9 text-slate-300">
-                Every great digital product begins with a question—not just
-                <span className="font-semibold text-white">
-                  {" "}
-                  "How do we build it?"
-                </span>
-                , but
+                Great products aren't defined by code alone—they're shaped by
                 <span className="font-semibold text-cyan-300">
                   {" "}
-                  "How should people experience it?"
+                  meaningful experiences
                 </span>
+                .
               </p>
 
               <p className="mt-8 text-lg leading-9 text-slate-400">
                 I'm <span className="font-bold text-white">Digvijay</span>, a
-                MERN Stack Developer focused on engineering modern web
-                applications that balance elegant design with scalable
-                architecture. From crafting immersive React interfaces to
-                building secure APIs with Express and Node.js, every project is
-                driven by performance, maintainability, and purposeful user
-                experience.
+                MERN Stack Developer passionate about building fast, scalable,
+                and visually refined web applications with React, Node.js,
+                Express, and MongoDB.
               </p>
 
               <p className="mt-8 text-lg leading-9 text-slate-400">
-                What began as curiosity for writing code has evolved into a
-                relentless pursuit of building premium digital systems where
-                clean architecture, intuitive interactions, and pixel-perfect
-                execution exist as one cohesive experience.
+                I believe clean architecture, thoughtful design, and performance
+                should work together to create products that people genuinely
+                enjoy using.
               </p>
             </div>
 
-            {/* Philosophy */}
-            {/* <div className="relative overflow-hidden rounded-3xl border border-cyan-400/20 bg-linear-to-br from-cyan-500/10 via-white/5 to-purple-500/10 p-8 backdrop-blur-xl">
-              <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-cyan-400/20 blur-3xl" />
+            <div className="relative flex items-center justify-center">
+              {/* Glow */}
+              <div className="absolute h-56 w-56 rounded-full bg-cyan-500/10 blur-3xl animate-pulse" />
 
-              <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-300">
-                Philosophy
-              </h3>
+              <div className="relative h-60 w-60">
+                {/* Rotating Ring */}
+                <div
+                  className="absolute inset-0 animate-[spin_25s_linear_infinite]"
+                  style={{
+                    background:
+                      "conic-gradient(#22d3ee 0deg 90deg,#8b5cf6 90deg 180deg,#3b82f6 180deg 270deg,#14b8a6 270deg 360deg)",
+                    borderRadius: "9999px",
+                    WebkitMask:
+                      "radial-gradient(farthest-side,transparent calc(100% - 16px),#000 calc(100% - 15px))",
+                    mask: "radial-gradient(farthest-side,transparent calc(100% - 16px),#000 calc(100% - 15px))",
+                  }}
+                />
 
-              <p className="mt-6 text-2xl font-semibold leading-relaxed text-white">
-                "Great software isn't measured by the amount of code written.
-                It's remembered by how naturally technology disappears behind
-                exceptional user experiences."
-              </p>
-            </div> */}
+                {/* Inner Glass Circle */}
 
-            {/* CTA */}
-            <button className="group relative inline-flex overflow-hidden rounded-full border border-cyan-400/30 px-8 py-4 text-sm font-bold uppercase tracking-[0.25em] text-white transition-all duration-500 hover:scale-105 hover:border-cyan-400 hover:shadow-[0_0_35px_rgba(34,211,238,0.45)]">
-              <span className="absolute inset-0 -translate-x-full bg-linear-to-r from-cyan-500 via-sky-500 to-purple-500 transition-transform duration-500 group-hover:translate-x-0" />
+                <div className="absolute inset-4.5 rounded-full border border-white/10 bg-slate-900/80 backdrop-blur-xl flex flex-col items-center justify-center">
+                  <h2 className="text-5xl font-black text-white">
+                    {progress}%
+                  </h2>
 
-              <span className="relative flex items-center gap-3">
-                Initiate Transmission
-                <ArrowUpRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </span>
-            </button>
+                  <p className="mt-2 text-xs tracking-[0.4em] uppercase text-cyan-300">
+                    MERN CORE
+                  </p>
+                </div>
+
+                {/* React */}
+
+                <div className="group absolute left-1/2 top-0 -translate-x-1/2">
+                  <div className="rounded-full border border-cyan-400/30 bg-slate-900/70 p-3 transition duration-300 group-hover:scale-110 group-hover:shadow-[0_0_25px_#22d3ee]">
+                    <SiReact className="text-2xl text-cyan-400" />
+                  </div>
+                </div>
+
+                {/* Mongo */}
+
+                <div className="group absolute left-0 top-1/2 -translate-y-1/2">
+                  <div className="rounded-full border border-emerald-400/30 bg-slate-900/70 p-3 transition duration-300 group-hover:scale-110 group-hover:shadow-[0_0_25px_#22c55e]">
+                    <SiMongodb className="text-2xl text-emerald-400" />
+                  </div>
+                </div>
+
+                {/* Node */}
+
+                <div className="group absolute right-0 top-1/2 -translate-y-1/2">
+                  <div className="rounded-full border border-lime-400/30 bg-slate-900/70 p-3 transition duration-300 group-hover:scale-110 group-hover:shadow-[0_0_25px_#84cc16]">
+                    <SiNodedotjs className="text-2xl text-lime-400" />
+                  </div>
+                </div>
+
+                {/* Express */}
+
+                <div className="group absolute bottom-0 left-1/2 -translate-x-1/2">
+                  <div className="rounded-full border border-purple-400/30 bg-slate-900/70 p-3 transition duration-300 group-hover:scale-110 group-hover:shadow-[0_0_25px_#a855f7]">
+                    <SiExpress className="text-2xl text-white" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* RIGHT */}
           <div className="space-y-8">
             {/* Terminal */}
-           <TerminalPanel />
-
-            {/* Tech Matrix */}
-           
+            <TerminalPanel />
           </div>
         </div>
       </div>

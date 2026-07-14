@@ -18,7 +18,6 @@ const stats = [
 export default function HeroStats() {
   return (
     <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-3 lg:mt-16">
-
       {stats.map((item, index) => (
         <motion.div
           key={index}
@@ -37,12 +36,9 @@ export default function HeroStats() {
             {item.value}
           </h2>
 
-          <p className="mt-2 text-gray-400">
-            {item.label}
-          </p>
+          <p className="mt-2 text-gray-400">{item.label}</p>
         </motion.div>
       ))}
-
     </div>
   );
 }

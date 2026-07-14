@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 export default function HeroImage() {
   return (
     <div className="relative flex items-center justify-center">
-
       <motion.div
         animate={{ rotate: 360 }}
         transition={{
@@ -37,20 +36,15 @@ export default function HeroImage() {
         className="relative"
       >
         <div className="rounded-full bg-gradient-to-r from-pink-500 via-violet-500 to-cyan-500 p-[5px] shadow-[0_0_120px_rgba(236,72,153,.4)]">
-
           <div className="rounded-full bg-[#050505] p-2">
-
             <img
               src={heroImg}
               alt="Digvijay"
               className="h-56 w-56 rounded-full object-cover sm:h-64 sm:w-64 md:h-72 md:w-72 lg:h-80 lg:w-80 xl:h-[320px] xl:w-[320px]"
             />
-
           </div>
-
         </div>
       </motion.div>
-
     </div>
   );
 }

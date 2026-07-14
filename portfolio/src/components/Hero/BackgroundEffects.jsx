@@ -7,7 +7,7 @@ export default function BackgroundEffects() {
         animate={{
           x: [0, 120, -80, 0],
           y: [0, -60, 80, 0],
-          scale: [1, 1.2, .9, 1],
+          scale: [1, 1.2, 0.9, 1],
         }}
         transition={{
           duration: 18,
@@ -21,7 +21,7 @@ export default function BackgroundEffects() {
         animate={{
           x: [0, -100, 80, 0],
           y: [0, 100, -60, 0],
-          scale: [1, .9, 1.15, 1],
+          scale: [1, 0.9, 1.15, 1],
         }}
         transition={{
           duration: 22,
@@ -45,7 +45,6 @@ export default function BackgroundEffects() {
       />
 
       <div className="absolute inset-0 opacity-[0.04]">
-
         <div
           className="h-full w-full"
           style={{
@@ -56,7 +55,6 @@ export default function BackgroundEffects() {
             backgroundSize: "60px 60px",
           }}
         />
-
       </div>
 
       <h1
