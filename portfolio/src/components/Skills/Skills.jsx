@@ -300,7 +300,7 @@ export default function Skills() {
       t += 0.016;
 
       if (autoRotate) {
-        rotY += 0.0022;
+        rotY += 0.0022 * (500 / size);
       } else if (
         !isDragging &&
         (Math.abs(velX) > 0.00005 || Math.abs(velY) > 0.00005)

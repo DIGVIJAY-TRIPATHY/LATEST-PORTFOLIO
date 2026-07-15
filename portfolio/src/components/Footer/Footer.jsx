@@ -1,4 +1,5 @@
-import { Mail, ArrowUpRight, ArrowUp, Download } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Mail, ArrowUpRight, ArrowUp, Download, Check } from "lucide-react";
 
 import resume from "../../assets/DIGVIJAY-CV.pdf";
 
@@ -6,8 +7,8 @@ import resume from "../../assets/DIGVIJAY-CV.pdf";
 const GithubIcon = () => (
   <svg
     viewBox="0 0 24 24"
-    width="24"
-    height="24"
+    width="22"
+    height="22"
     stroke="currentColor"
     strokeWidth="2"
     fill="none"
@@ -23,8 +24,8 @@ const GithubIcon = () => (
 const LinkedinIcon = () => (
   <svg
     viewBox="0 0 24 24"
-    width="24"
-    height="24"
+    width="22"
+    height="22"
     stroke="currentColor"
     strokeWidth="2"
     fill="none"
@@ -37,8 +38,50 @@ const LinkedinIcon = () => (
   </svg>
 );
 
+const MARQUEE_ITEMS = [
+  "AVAILABLE FOR INTERNSHIPS",
+  "REACT",
+  "NODE.JS",
+  "MONGODB",
+  "OPEN TO FREELANCE",
+  "EXPRESS",
+  "TAILWIND CSS",
+  "LET'S BUILD TOGETHER",
+];
+
+const SOCIAL_LINKS = [
+  {
+    label: "GitHub",
+    href: "https://github.com/DIGVIJAY-TRIPATHY",
+    Icon: GithubIcon,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/digvijay-tripathy-194aa8314/",
+    Icon: LinkedinIcon,
+  },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
+  const [copied, setCopied] = useState(false);
+  const [scrollPct, setScrollPct] = useState(0);
+
+  // Track scroll progress of the whole page to drive the ring around
+  // the "back to top" button — a small instrument, not just a button.
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      setScrollPct(Math.min(100, Math.max(0, pct)));
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -47,18 +90,101 @@ export default function Footer() {
     });
   };
 
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText("tripathydigvijay7377@gmail.com");
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Clipboard API unavailable — mailto link on the element still works.
+    }
+  };
+
+  const RING_RADIUS = 20;
+  const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
+
   return (
     <footer
       className="relative overflow-hidden border-t border-white/10 bg-black"
       id="contact"
     >
+      <style>{`
+        @keyframes marquee-scroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .marquee-track {
+          animation: marquee-scroll 28s linear infinite;
+        }
+        .marquee-track:hover {
+          animation-play-state: paused;
+        }
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .cta-ring-spin {
+          animation: spin-slow 6s linear infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .marquee-track,
+          .cta-ring-spin {
+            animation: none !important;
+          }
+        }
+      `}</style>
+
+      {/* Ambient glow + faint grid texture */}
       <div className="absolute inset-0">
         <div className="absolute left-1/4 top-0 h-72 w-72 rounded-full bg-pink-500/20 blur-[120px]" />
         <div className="absolute right-1/4 bottom-0 h-72 w-72 rounded-full bg-blue-500/20 blur-[120px]" />
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+            maskImage:
+              "radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%)",
+          }}
+        />
+      </div>
+
+      {/* Signature marquee ticker */}
+      <div className="relative border-b border-white/10 bg-white/[0.03] py-3">
+        <div className="marquee-track flex w-max gap-10 whitespace-nowrap">
+          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
+            <span
+              key={`${item}-${i}`}
+              className="flex items-center gap-10 text-sm font-semibold tracking-[0.2em] text-transparent"
+              style={{
+                backgroundImage:
+                  "linear-gradient(90deg, #ec4899, #a855f7, #22d3ee)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+              }}
+            >
+              {item}
+              <span className="h-1 w-1 rounded-full bg-zinc-600" />
+            </span>
+          ))}
+        </div>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 py-20">
-        <div className="mb-20 overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl md:p-12">
+        <div className="relative mb-20 overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl md:p-12">
+          {/* Rotating conic-gradient glow ring behind the CTA card */}
+          <div
+            className="cta-ring-spin pointer-events-none absolute -inset-[2px] -z-10 opacity-60"
+            style={{
+              background:
+                "conic-gradient(from 0deg, #ec4899, #a855f7, #22d3ee, transparent 40%)",
+            }}
+          />
+          <div className="absolute inset-[1px] -z-10 rounded-4xl bg-black" />
+
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <p className="mb-3 text-sm uppercase tracking-[0.3em] text-pink-400">
@@ -81,7 +207,7 @@ export default function Footer() {
 
             <a
               href="mailto:tripathydigvijay7377@gmail.com"
-              className="group flex items-center gap-3 rounded-2xl bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 px-8 py-4 font-semibold text-white transition-all duration-300 hover:scale-105"
+              className="group flex items-center gap-3 rounded-2xl bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 px-8 py-4 font-semibold text-white shadow-lg shadow-pink-500/20 transition-all duration-300 hover:scale-105 hover:shadow-pink-500/40"
             >
               Let's Talk
               <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -111,7 +237,10 @@ export default function Footer() {
             </p>
 
             <div className="mt-6 flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-green-400 animate-pulse" />
+              <span className="relative flex h-3 w-3">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-green-400" />
+              </span>
               <span className="text-sm text-zinc-400">
                 Available for internships & opportunities
               </span>
@@ -122,36 +251,22 @@ export default function Footer() {
             <h4 className="mb-5 font-semibold text-white">Navigation</h4>
 
             <div className="space-y-3">
-              <a
-                href="#home"
-                className="block text-zinc-400 hover:text-pink-400"
-              >
-                Home
-              </a>
-              <a
-                href="#about"
-                className="block text-zinc-400 hover:text-pink-400"
-              >
-                About
-              </a>
-              <a
-                href="#skills"
-                className="block text-zinc-400 hover:text-pink-400"
-              >
-                Skills
-              </a>
-              <a
-                href="#projects"
-                className="block text-zinc-400 hover:text-pink-400"
-              >
-                Projects
-              </a>
-              <a
-                href="#contact"
-                className="block text-zinc-400 hover:text-pink-400"
-              >
-                Contact
-              </a>
+              {[
+                ["Home", "#home"],
+                ["About", "#about"],
+                ["Skills", "#skills"],
+                ["Projects", "#projects"],
+                ["Contact", "#contact"],
+              ].map(([label, href]) => (
+                <a
+                  key={label}
+                  href={href}
+                  className="group relative block w-fit text-zinc-400 hover:text-pink-400"
+                >
+                  {label}
+                  <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-linear-to-r from-pink-500 to-cyan-400 transition-all duration-300 group-hover:w-full" />
+                </a>
+              ))}
             </div>
           </div>
 
@@ -162,18 +277,29 @@ export default function Footer() {
               <a
                 href={resume}
                 download
-                className="flex items-center gap-2 text-zinc-400 hover:text-pink-400"
+                className="flex w-fit items-center gap-2 text-zinc-400 hover:text-pink-400"
               >
                 <Download size={16} />
                 Resume
               </a>
 
-              <a
-                href="mailto:tripathydigvijay7377@gmail.com"
-                className="block text-zinc-400 hover:text-pink-400"
+              <button
+                type="button"
+                onClick={copyEmail}
+                className="flex w-fit items-center gap-2 text-left text-zinc-400 hover:text-pink-400"
               >
-                Email Me
-              </a>
+                {copied ? (
+                  <>
+                    <Check size={16} className="text-green-400" />
+                    <span className="text-green-400">Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Mail size={16} />
+                    Email Me
+                  </>
+                )}
+              </button>
 
               <span className="block text-zinc-400">Bhubaneswar, India</span>
             </div>
@@ -183,29 +309,31 @@ export default function Footer() {
             <h4 className="mb-5 font-semibold text-white">Connect</h4>
 
             <div className="flex gap-4">
-              <a
-                href="https://github.com/DIGVIJAY-TRIPATHY"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-xl border border-white/10 bg-white/5 p-3 text-zinc-300 transition-all hover:border-pink-500 hover:text-pink-400"
-              >
-                <GithubIcon />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/digvijay-tripathy-194aa8314/"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-xl border border-white/10 bg-white/5 p-3 text-zinc-300 transition-all hover:border-pink-500 hover:text-pink-400"
-              >
-                <LinkedinIcon />
-              </a>
+              {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={label}
+                  className="group relative rounded-xl border border-white/10 bg-white/5 p-3 text-zinc-300 transition-all duration-300 hover:-translate-y-1 hover:border-pink-500 hover:text-pink-400 hover:shadow-lg hover:shadow-pink-500/20"
+                >
+                  <Icon />
+                  <span className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-white/10 px-2 py-1 text-xs text-white opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
+                    {label}
+                  </span>
+                </a>
+              ))}
 
               <a
                 href="mailto:tripathydigvijay7377@gmail.com"
-                className="rounded-xl border border-white/10 bg-white/5 p-3 text-zinc-300 transition-all hover:border-pink-500 hover:text-pink-400"
+                aria-label="Email"
+                className="group relative rounded-xl border border-white/10 bg-white/5 p-3 text-zinc-300 transition-all duration-300 hover:-translate-y-1 hover:border-pink-500 hover:text-pink-400 hover:shadow-lg hover:shadow-pink-500/20"
               >
-                <Mail />
+                <Mail size={22} />
+                <span className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-white/10 px-2 py-1 text-xs text-white opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
+                  Email
+                </span>
               </a>
             </div>
 
@@ -214,7 +342,7 @@ export default function Footer() {
                 (tech) => (
                   <span
                     key={tech}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-400"
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-400 transition-colors hover:border-cyan-400/50 hover:text-cyan-300"
                   >
                     {tech}
                   </span>
@@ -229,11 +357,49 @@ export default function Footer() {
             © {year} Digvijay Tripathy. Crafted with React & Tailwind CSS.
           </p>
 
+          {/* Back-to-top button with an SVG ring showing page scroll progress */}
           <button
             onClick={scrollToTop}
-            className="group flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all hover:border-pink-500 hover:bg-pink-500"
+            aria-label="Back to top"
+            className="group relative flex h-12 w-12 items-center justify-center rounded-full text-white transition-transform hover:scale-105"
           >
-            <ArrowUp className="h-5 w-5 transition-transform group-hover:-translate-y-1" />
+            <svg
+              viewBox="0 0 48 48"
+              className="absolute inset-0 h-12 w-12 -rotate-90"
+            >
+              <circle
+                cx="24"
+                cy="24"
+                r={RING_RADIUS}
+                fill="none"
+                stroke="rgba(255,255,255,0.1)"
+                strokeWidth="2"
+              />
+              <circle
+                cx="24"
+                cy="24"
+                r={RING_RADIUS}
+                fill="none"
+                stroke="url(#ring-gradient)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeDasharray={RING_CIRCUMFERENCE}
+                strokeDashoffset={
+                  RING_CIRCUMFERENCE - (scrollPct / 100) * RING_CIRCUMFERENCE
+                }
+                style={{ transition: "stroke-dashoffset 100ms linear" }}
+              />
+              <defs>
+                <linearGradient id="ring-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#ec4899" />
+                  <stop offset="50%" stopColor="#a855f7" />
+                  <stop offset="100%" stopColor="#22d3ee" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-colors group-hover:border-pink-500 group-hover:bg-pink-500">
+              <ArrowUp className="h-5 w-5 transition-transform group-hover:-translate-y-1" />
+            </span>
           </button>
         </div>
       </div>
