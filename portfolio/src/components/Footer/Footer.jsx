@@ -242,7 +242,7 @@ export default function Footer() {
                 <span className="relative inline-flex h-3 w-3 rounded-full bg-green-400" />
               </span>
               <span className="text-sm text-zinc-400">
-                Available for internships & opportunities
+                Available for <b>SDE-1</b> roles 
               </span>
             </div>
           </div>
