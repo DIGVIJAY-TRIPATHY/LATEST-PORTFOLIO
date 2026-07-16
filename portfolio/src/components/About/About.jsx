@@ -1,8 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-// ---------------------------------------------------------------------------
-// Edit this content freely — the terminal is just a renderer for it.
-// ---------------------------------------------------------------------------
 const PROFILE = {
   name: "DIGVIJAY TRIPATHY",
   role: "Frontend Developer · MERN Stack",
@@ -38,16 +35,13 @@ const EXPERIENCE = [
 
 const SKILLS = ["React", "JavaScript", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "Three.js", "Git"];
 
-// TODO: replace with your real links.
 const CONTACT = [
-  { label: "Email", value: "your.email@example.com", href: "mailto:your.email@example.com" },
-  { label: "GitHub", value: "github.com/yourusername", href: "https://github.com/yourusername" },
-  { label: "LinkedIn", value: "linkedin.com/in/yourusername", href: "https://linkedin.com/in/yourusername" },
+  { label: "Email", value: "tripathydigvijay7377@gmail.com", href: "mailto:tripathydigvijay7377@gmail.com" },
+  { label: "GitHub", value: "github.com/DIGVIJAY-TRIPATHY", href: "https://github.com/DIGVIJAY-TRIPATHY" },
+  { label: "LinkedIn", value: "linkedin.com/in/DIGVIJAY-TRIPATHY", href: "https://www.linkedin.com/in/digvijay-tripathy-194aa8314/" },
 ];
 
-// ---------------------------------------------------------------------------
-// Command definitions — each returns an array of styled output lines.
-// ---------------------------------------------------------------------------
+
 let uid = 0;
 const nextId = () => `l${uid++}`;
 
@@ -282,7 +276,7 @@ export default function About() {
 
         .about-section {
           position: relative;
-          background: #0a0b10;
+          // background: #0a0b10;
           background-image: radial-gradient(circle, rgba(127,119,221,0.12) 1px, transparent 1px);
           background-size: 32px 32px;
           padding: clamp(56px, 10vw, 100px) clamp(16px, 6vw, 96px);
@@ -576,8 +570,6 @@ export default function About() {
         ))}
       </div>
 
-      {/* Same content, plain text — for screen readers/crawlers that don't
-          fully track a live-updating log, and for SEO. */}
       <div className="sr-only">
         <h3>{PROFILE.name}</h3>
         <p>{PROFILE.bio}</p>
