@@ -281,7 +281,6 @@ export default function Navbar() {
               className="group relative inline-flex items-center gap-1.5 ml-1 px-4 py-2 rounded-full text-sm font-semibold text-white overflow-hidden"
               target="_blank"
               href={resume}
-              download
             >
               <span className="absolute inset-0 bg-linear-to-r from-pink-500 via-fuchsia-500 to-blue-500 transition-transform duration-300 group-hover:scale-105" />
               <span className="relative">Resume</span>
@@ -354,7 +353,6 @@ export default function Navbar() {
               <a
                 target="_blank"
                 href={resume}
-                download
                 className="relative inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold text-white overflow-hidden"
               >
                 <span className="absolute inset-0 bg-linear-to-r from-pink-500 via-fuchsia-500 to-blue-500" />

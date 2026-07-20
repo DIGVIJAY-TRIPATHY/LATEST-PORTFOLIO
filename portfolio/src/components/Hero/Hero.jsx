@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Download, ArrowRight, ChevronDown, Code2 } from "lucide-react";
+import { ArrowUpRight, ArrowRight, ChevronDown, Code2 } from "lucide-react";
 import { SiReact, SiMongodb, SiNodedotjs, SiGithub } from "react-icons/si";
 import PROFILE_IMAGE from "../../assets/DIG.jpeg";
 import RESUME_URL from "../../assets/DIGVIJAY-CV.pdf";
@@ -296,13 +296,13 @@ export default function Hero() {
             </a>
 
             <a
+            target="_blank"
               href={RESUME_URL}
-              download
               onMouseMove={magneticMove}
               onMouseLeave={magneticLeave}
               className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-xl transition-colors duration-200 hover:border-cyan-400/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
-              <Download className="h-4 w-4" />
+             <ArrowUpRight size={14} className="relative" />
               Resume
             </a>
           </div>
