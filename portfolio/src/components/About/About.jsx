@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 
 const PROFILE = {
   name: "DIGVIJAY TRIPATHY",
-  role: "Frontend Developer · MERN Stack",
-  bio: "I'm a passionate Frontend Developer focused on building minimal yet interactive user experiences. I enjoy turning ideas into digital products using React, CSS magic, and modern UI trends.",
+  role: "Full Stack Developer · MERN Stack · AI Integration Engineer",
+  bio: "I develop scalable full-stack applications and AI-powered solutions using the MERN stack, crafting fast, intuitive, and intelligent digital experiences with modern web technologies.",
 };
 
 const EDUCATION = [
