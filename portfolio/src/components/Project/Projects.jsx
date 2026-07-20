@@ -52,7 +52,7 @@ const PROJECTS = [
             "Tailwind CSS",
         ],
         featured: true,
-        liveUrl: "https://yourportfolio.example.com",
+        liveUrl: "https://digvijay-tripathy.netlify.app/",
         sourceUrl: "https://github.com/DIGVIJAY-TRIPATHY/LATEST-PORTFOLIO",
         image: portfolio_img,
     },
