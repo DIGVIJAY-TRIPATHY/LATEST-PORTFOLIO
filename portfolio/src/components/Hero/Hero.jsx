@@ -259,7 +259,7 @@ export default function Hero() {
         {/* ---------------- text column ---------------- */}
         <div className="order-2 flex flex-col items-center text-center lg:order-1 lg:items-start lg:text-left">
           <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300 backdrop-blur-xl">
-            👋 Welcome to my portfolio
+          Welcome to my portfolio
           </span>
 
           <p className="mt-7 text-sm font-medium uppercase tracking-[0.25em] text-slate-400 sm:text-base">
